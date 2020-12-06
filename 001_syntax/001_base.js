@@ -53,7 +53,13 @@ function subtractTwoArgs(a, b) {
  *
  */
 function quotientTwoArgs(a, b) {
-  return a / b;
+  let result = a /  b;
+  if(result === Infinity) {
+    return null;
+  } else {
+    resultFloor = Math.floor(result);
+    return resultFloor;
+  }
 }
 
 /**
