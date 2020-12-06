@@ -57,7 +57,7 @@ function quotientTwoArgs(a, b) {
   if(result === Infinity) {
     return null;
   } else {
-    resultFloor = Math.floor(result);
+    let resultFloor = Math.floor(result);
     return resultFloor;
   }
 }
