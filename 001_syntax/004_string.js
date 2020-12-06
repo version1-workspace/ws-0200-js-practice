@@ -80,7 +80,9 @@ function isInclude(a, b) {
  */
 
 function printByChar(str) {
+  // 渡ってきた文字列を配列に変換
   let textArray = str.split('');
+  // 配列を一つずつ出力する
   for(let i = 0; i < textArray.length; i++){
     console.log(textArray[i]);
   }
