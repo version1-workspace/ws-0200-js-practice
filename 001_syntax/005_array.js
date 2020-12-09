@@ -54,8 +54,8 @@ function findNum(array, num) {
  */
 
 function isDuplicate(array) {
-  const newArray = new Set(array);
-  const getArray = newArray.size !== array.length;
+  const newArray = [...new Set(array)];
+  const getArray = newArray.length !== array.length;
   
   return getArray;
 }
