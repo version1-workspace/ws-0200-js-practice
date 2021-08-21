@@ -4,6 +4,9 @@
  */
 
 function printOneToTen() {
+  for (let i = 0; i < 11; i++) {
+    console.log(i);
+  }
 }
 
 /**
@@ -11,6 +14,10 @@ function printOneToTen() {
  * */
 
 function printOneToTenDesc() {
+  for (let i = 0; i < 11; i++) {
+    const number = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    console.log(number[i]);
+  }
 }
 
 /**
@@ -19,6 +26,11 @@ function printOneToTenDesc() {
  */
 
 function printOneToTenWhile() {
+  let number = 0
+  while (number < 11) {
+    console.log(number);
+    number++
+  }
 }
 
 /**
@@ -26,7 +38,13 @@ function printOneToTenWhile() {
  *
  */
 
-function printOneToTenWhileDesc() {
+ function printOneToTenWhileDesc() {
+  let number = 10
+  while(number > -1) {
+    let test = number;
+    number--
+    console.log(test);
+  }
 }
 
 module.exports = {

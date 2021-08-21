@@ -3,7 +3,8 @@
  *
  */
 
-function length(str) {
+ function length(str) {
+  return str.length;
 }
 
 /**
@@ -12,6 +13,11 @@ function length(str) {
  */
 
 function lengthIsEven(str) {
+  if (str.length % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
 }
 
 /**
@@ -20,6 +26,7 @@ function lengthIsEven(str) {
  */
 
 function firstChar(str) {
+  return str.slice(0, 1);
 }
 
 /**
@@ -28,6 +35,7 @@ function firstChar(str) {
  */
 
 function lastChar(str) {
+  return str.slice(-1);
 }
 
 /**
@@ -37,6 +45,7 @@ function lastChar(str) {
  */
 
 function substring(str, a, b) {
+  return str.substring(a -1, b);
 }
 
 /**
@@ -50,7 +59,12 @@ function substring(str, a, b) {
  *      "hogegeho", "fugafuga" => false
  * */
 
-function isInclude(a, b) {
+ function isInclude(a, b) {
+  if(a.includes(b)) {
+    return true
+  } else {
+    return false
+  }
 }
 
 /**
@@ -68,7 +82,10 @@ function isInclude(a, b) {
  *
  */
 
-function printByChar(str) {
+ function printByChar(str) {
+  for (let i = 0; i < str.length; i++) {
+    console.log(str.charAt(i));
+  }
 }
 
 
