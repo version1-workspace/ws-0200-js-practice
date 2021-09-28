@@ -8,6 +8,12 @@
  */
 
 function getPersonObject() {
+  const person = {
+    name: 'Bob',
+    age: 32,
+    gender: 'male'
+  }
+  return person;
 }
 
 /**
@@ -25,6 +31,10 @@ function getPersonObject() {
  */
 
 function mutateObject(person) {
+  person.name = 'Mary';
+  person.age = 37;
+  person.gender = 'female';
+  return person;
 }
 
 /**
@@ -49,6 +59,12 @@ function mutateObject(person) {
  */
 
 function assignNumber(persons) {
+  let obj = {};
+  for (let i = 0; i < persons.length; i++) {
+    const random = Math.floor(Math.random() * 10 + 1);
+    obj[persons[i]] = random
+  }
+  return obj;
 }
 
 /**
@@ -63,6 +79,15 @@ function assignNumber(persons) {
  */
 
 function isDuplicate(array) {
+  let obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) { // obj = {1: true, 2:true}
+      return true
+    }
+    obj[array[i]] = true;
+    // obj = {1: true, 2:true}
+  }
+  return false
 }
 
 module.exports = {
