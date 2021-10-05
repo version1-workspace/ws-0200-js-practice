@@ -57,8 +57,8 @@ class List {
    */
   remove(targetIndex) {
     // TODO:
-    return this.data.filter((index) => index !== targetIndex)
-
+    this.data = this.data.filter((data, index) => index !== targetIndex);
+    return this.data
   }
 
   /** リストの 末尾の要素を取得する
@@ -127,7 +127,7 @@ class List {
     let arr = []; 
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i] !== target) {
-        return arr.push(this.data[i]);
+        arr.push(this.data[i]);
       }
     }
     return arr;
