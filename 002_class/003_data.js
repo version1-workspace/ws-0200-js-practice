@@ -57,7 +57,8 @@ class List {
    */
   remove(targetIndex) {
     // TODO:
-    return this.data.filter((index) => !index == targetIndex)
+    return this.data.filter((index) => index !== targetIndex)
+
   }
 
   /** リストの 末尾の要素を取得する
