@@ -22,9 +22,36 @@
  */
 
 class Person {
+  // 4.コンストラクタの宣言、および、name, age, bioフィールドの初期化
+  constructor(name, age, bio) {
+    this.name = name;
+    this.age = age;
+    this.bio = bio;
+  }
+  // 1.インスタンスメソッド
+  sayHi() {
+    console.log('Hi!!');
+  };
+  // 2.クラスメソッド
+  static describe() {
+    console.log('This is a Person class');
+  };
+  // 3.フィールドの追加
+  // ※ static を付与する場合は、immutableになる。
+  name = '';
+  age = '';
+  bio = '';
+  // 5.ゲッター　関数の呼び出し
+  get isUnderage(){
+    return this.age < 20;
+  }
+  // 6.toString メソッドの実装
+  toString(){
+    return `name: ${this.name}, age: ${this.age}, bio: ${this.bio}`;
+  }
 }
 
-function main () {
+function main() {
   const person = new Person('ichiro', 54, 'I like to play baseball')
   person.sayHi()
   Person.describe()
