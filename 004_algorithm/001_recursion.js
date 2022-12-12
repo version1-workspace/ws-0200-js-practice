@@ -28,18 +28,22 @@ function sumSequence (n, sum = 0) {
  *    input: 10 => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
  */
 
-function fibonacci (num, index = 0, array = []) {
+function fibonacci (num) {
   if (num == 0) {
-    return array
+    return []
   }
 
-  if (index === 0 || index === 1) {
-    array.push(1)
-    return fibonacci(num - 1, index + 1, array)
+  if (num === 1) {
+    return [1]
   }
 
-  array.push(array[index - 2] + array[index - 1])
-  return fibonacci(num - 1, index + 1, array)
+  if (num === 2) {
+    return [1, 1]
+  }
+
+  const prevs = fibonacci(num - 1)
+
+  return [...prevs, prevs[prevs.length-1] + prevs[prevs.length - 2]]
 }
 
 
