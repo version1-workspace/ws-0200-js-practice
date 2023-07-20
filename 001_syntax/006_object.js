@@ -8,6 +8,13 @@
  */
 
 function getPersonObject() {
+  const obj = {
+    name: 'Bob',
+    age: 32,
+    gender: 'male',
+  }
+
+  return obj
 }
 
 /**
@@ -25,6 +32,17 @@ function getPersonObject() {
  */
 
 function mutateObject(person) {
+  const newPerson = {
+    name: 'Mary',
+    age: 37,
+    gender: 'female',
+  }
+  return newPerson
+}
+const A = {
+  name: 'Bob',
+  age: 32,
+  gender: 'male',
 }
 
 /**
@@ -49,7 +67,19 @@ function mutateObject(person) {
  */
 
 function assignNumber(persons) {
+  let obj = {}
+
+  persons.forEach((person) => {
+    let random = Math.floor(Math.random() * 10) + 1
+    obj[person] = random
+  })
+
+  return obj
 }
+
+let persons = ['Bob', 'Mary', 'Ann', 'Mike']
+
+assignNumber(persons)
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
@@ -63,11 +93,27 @@ function assignNumber(persons) {
  */
 
 function isDuplicate(array) {
+  let obj = {}
+
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) {
+      return true
+    }
+    obj[array[i]] = true
+  }
+
+  return false
 }
+
+let arrayA = [1, 2, 2, 3]
+let arrayB = [1, 2, 3, 2]
+
+isDuplicate(arrayA)
+isDuplicate(arrayB)
 
 module.exports = {
   getPersonObject,
   mutateObject,
   assignNumber,
-  isDuplicate
+  isDuplicate,
 }
