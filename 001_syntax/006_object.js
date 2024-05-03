@@ -89,16 +89,7 @@ console.log(assignNumber(people));
  */
 
 function isDuplicate(array) {
-  const num ={}
-  for(const number of array){
-    if(num[number]){
-      return true;
-    }
-    else{
-      num[number]=1
-    }
-  }
-  return false
+ 
 }
 
 console.log(isDuplicate([1,2,3]));
