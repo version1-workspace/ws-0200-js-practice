@@ -6,11 +6,10 @@
  *
  */
 function printMessageByAge(age) {
-  return age >=20? '成年です。': 'それ以外は "未成年です';
+  return age >= 20 ? "成年です。" : "未成年です。";
 }
 console.log(printMessageByAge(21));
 console.log(printMessageByAge(19));
-
 
 /**
  *  2.2 引数から与えられた時間が
@@ -20,19 +19,26 @@ console.log(printMessageByAge(19));
  *    と出力するメソッドを実装してください
  *
  */
+
 function greeding(hour) {
-  if(hour<4&&12){
-    return console.log( 'Good Morning');
+  if (hour >= 4 && hour < 12) {
+    return console.log("Good Morning");
+  } else if (hour >= 12 && hour <= 17) {
+    return console.log("Hello");
+  } else {
+    return console.log("Good Night");
   }
-  else if(hour<12&&17){
-    return console.log('Hello');
-  }
-  else
-   return console.log('Good Night');
 }
-greeding(3)
-greeding(10)
-greeding(23);
+// good morinng
+greeding(4);
+greeding(11);
+//hello
+greeding(12);
+greeding(17);
+greeding(16);
+//night
+greeding(18);
+greeding(2);
 
 /**
  *  2.3 引数から与えられた数字に対応する曜日を出力するメソッドを実装します。
@@ -48,28 +54,21 @@ greeding(23);
  */
 
 function getDay(day) {
-  if(day===0){
-    return console.log('Sunday');
-  }
-  else if(day ===1){
-    return console.log('Monday');
-  }
-  else if(day ===2){
-    return console.log('Tuesday');
-  }
-  else if(day ===3){
-    return console.log('Wednesday');
-  }
-  else if(day ===4){
-    return console.log('Thursday');
-  }
-  else if(day ===5){
-    return console.log('Friday');
-  }
-  else if(day ===6){
-    return console.log('Saturday');
-  }
-  else{
+  if (day === 0) {
+    return console.log("Sunday");
+  } else if (day === 1) {
+    return console.log("Monday");
+  } else if (day === 2) {
+    return console.log("Tuesday");
+  } else if (day === 3) {
+    return console.log("Wednesday");
+  } else if (day === 4) {
+    return console.log("Thursday");
+  } else if (day === 5) {
+    return console.log("Friday");
+  } else if (day === 6) {
+    return console.log("Saturday");
+  } else {
     return null;
   }
 }
@@ -81,13 +80,8 @@ getDay(4);
 getDay(5);
 getDay(6);
 
-
-
-
-
-
 module.exports = {
   printMessageByAge,
   greeding,
-  getDay
-}
+  getDay,
+};

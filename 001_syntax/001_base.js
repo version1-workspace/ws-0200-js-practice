@@ -3,38 +3,38 @@
  *
  */
 function helloWorld() {
-  console.log('Hello World')}
+  console.log("Hello World");
+}
 
-helloWorld()
+helloWorld();
 
 /**
  *  1.2 const を使って"hoge"という文字列を定義した変数を定義し、それを出力する関数を定義してください
  *
  */
 function displayConst() {
-  const word = 'hoge'
+  const word = "hoge";
   console.log(word);
 }
-displayConst()
+displayConst();
 
 /**
  *  1.3 let を使って"hoge"という文字列を定義した変数を定義し、それを出力する関数を定義してください
  *
  */
 function displayLet() {
-  let word = 'hoge'
+  let word = "hoge";
   console.log(word);
 }
-displayLet()
+displayLet();
 /**
  *  1.4 引数に渡した変数を表示するメソッドを実装してください
  *
  */
 function displayArgument(arg) {
   console.log(arg);
-
 }
-displayArgument()
+displayArgument();
 
 /**
  *  1.5 渡された二つの引数の合計を返却するメソッドを実装してください
@@ -42,9 +42,9 @@ displayArgument()
  */
 
 function sumTwoArgs(a, b) {
- return a + b;
+  return a + b;
 }
-console.log(sumTwoArgs(1,1));
+console.log(sumTwoArgs(1, 1));
 
 /**
  *  1.6 渡された二つの引数の差を返却するメソッドを実装してください
@@ -53,16 +53,23 @@ console.log(sumTwoArgs(1,1));
 function subtractTwoArgs(a, b) {
   return a - b;
 }
-console.log(subtractTwoArgs(1,1));
+console.log(subtractTwoArgs(1, 1));
 /**
+ * //miss
  *  1.7 渡された二つの引数の商を返却するメソッドを実装してください。0での割り算はnullを返却してください。
  *
  */
 
 function quotientTwoArgs(a, b) {
-  return a / b;
+  if (b === 0) {
+    return null;
+  } else {
+    return a % b;
+  }
 }
-console.log(quotientTwoArgs(1,1));
+
+console.log(quotientTwoArgs(2, 2));
+console.log(quotientTwoArgs(1, 0));
 
 /**
  *  1.8 渡された二つの引数の積を返却するメソッドを実装してください
@@ -71,7 +78,7 @@ console.log(quotientTwoArgs(1,1));
 function productTwoArgs(a, b) {
   return a * b;
 }
-console.log(productTwoArgs(1,1));
+console.log(productTwoArgs(1, 1));
 
 //here
 /**
@@ -79,7 +86,7 @@ console.log(productTwoArgs(1,1));
  *
  */
 function remainderTwoArgs(a) {
-  return a /2;
+  return a % 2;
 }
 console.log(remainderTwoArgs(3));
 
@@ -88,20 +95,23 @@ console.log(remainderTwoArgs(3));
  *
  */
 function isEven(a) {
-  return a*4
+  if (a % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 console.log(isEven(1));
-
-
+console.log(isEven(2));
 
 /**
  *  1.11 渡された二つの文字列を連結するメソッドを実装してください
  *
  */
 function concatString(a, b) {
-  return a+b;
+  return a + b;
 }
-console.log(concatString('hello','World'));
+console.log(concatString("hello", "World"));
 
 module.exports = {
   helloWorld,
@@ -114,5 +124,5 @@ module.exports = {
   productTwoArgs,
   remainderTwoArgs,
   isEven,
-  concatString
-}
+  concatString,
+};
