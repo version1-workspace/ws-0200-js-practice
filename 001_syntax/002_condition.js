@@ -6,10 +6,8 @@
  *
  */
 function printMessageByAge(age) {
-  return age >= 20 ? "成年です。" : "未成年です。";
+  console.log(age >= 20 ? "成年です。" : "未成年です。");
 }
-console.log(printMessageByAge(21));
-console.log(printMessageByAge(19));
 
 /**
  *  2.2 引数から与えられた時間が
@@ -22,11 +20,11 @@ console.log(printMessageByAge(19));
 
 function greeding(hour) {
   if (hour >= 4 && hour < 12) {
-    return console.log("Good Morning");
-  } else if (hour >= 12 && hour <= 17) {
-    return console.log("Hello");
+    console.log("Good Morning");
+  } else if (hour >= 12 && hour < 17) {
+    console.log("Hello");
   } else {
-    return console.log("Good Night");
+    console.log("Good Night");
   }
 }
 // good morinng

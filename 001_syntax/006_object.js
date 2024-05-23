@@ -89,19 +89,19 @@ console.log(assignNumber(people));
  */
 
 function isDuplicate(array) {
+  const sum = {};
   for (let i = 0; i < array.length; i++) {
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[i] === array[j]) {
-        return true;
-      }
+    const element = array[i];
+    if (sum[element]) {
+      return true;
+    } else {
+      sum[element] = true;
     }
   }
   return false;
 }
 
-console.log(isDuplicate([1, 2, 3]));
-console.log(isDuplicate([1, 2, 2, 3]));
-console.log(isDuplicate([]));
+isDuplicate([1, 2, 3]);
 
 module.exports = {
   getPersonObject,
