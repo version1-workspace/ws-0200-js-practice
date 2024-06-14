@@ -11,13 +11,14 @@
  */
 
 function length(str) {
-  if (str === "") {
-    return 0;
-  } else {
-    return 1 + length(str.slice(1));
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum++;
   }
+  return sum;
 }
-console.log(length("banana"));
+length("banana");
+length("");
 /**
  *  文字列の反転
  *
@@ -29,12 +30,13 @@ console.log(length("banana"));
  *    'fizzbuzz' => 'zzubzzif'
  *
  */
+
 function reverse(str) {
-  let reverseArr = "";
+  let word = "";
   for (let i = str.length - 1; i >= 0; i--) {
-    reverseArr = reverseArr + str[i];
+    word = word + str[i];
   }
-  return reverseArr;
+  return word;
 }
 
 console.log(reverse("library"));
@@ -59,9 +61,8 @@ function findIndex(str, char) {
   }
   return -1;
 }
-
 console.log(findIndex("library", "a"));
-//npm run test __test__/003_practice/001_easy.spec.js
+console.log(findIndex("bicycle", "w"));
 
 /**
  *  指定された文字列を指定された文字で分割
@@ -76,13 +77,6 @@ console.log(findIndex("library", "a"));
  */
 
 function split(a, b) {
-  // const arr = a;
-  // for (let i = 0; i < arr.length; i++) {
-  //   if (arr[i].indexOf(b)) {
-  //     return arr[i].split(b);
-  //   }
-  // }
-  // return arr;
   return a.split(b);
 }
 console.log(split("library", "a"));
@@ -132,9 +126,7 @@ function average(array) {
     return Math.floor(sum / array.length);
   }
 }
-
 console.log(average([1, 3, 7, 9]));
-console.log(average[(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)]);
 console.log(average([]));
 
 /**
@@ -150,8 +142,8 @@ console.log(average([]));
  */
 
 function concat(a, b) {
-  const arr1 = a.concat(b);
-  return arr1;
+  const num = a.concat(b);
+  return num;
 }
 
 console.log(concat([1, 3, 7, 9], [3, 4]));
@@ -179,7 +171,7 @@ console.log(size([1, 3, 7, 9]));
  *  配列の最大値と最小値を出力する関数を実装してください。
  *
  *  example:
- *    [1, 3, 7, 9] => max: 20, min: 1
+ *    [1, 3, 7, 9] => max: 9, min: 1
  *    [2, 5, 3, 6, 10, -1] => max: 10, min: -1
  *    [1] => max: 1, min: 1
  *    [] => 表示しない
@@ -188,14 +180,24 @@ console.log(size([1, 3, 7, 9]));
 
 function minMax(array) {
   if (array.length === 0) {
-    return null;
+    return "";
   }
-  const max = Math.max(...array);
-  const min = Math.min(...array);
-
-  return console.log(`max: ${max}, min: ${min}`);
+  let max = array[i];
+  let min = array[i];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
+  }
+  console.log(`max: ${max}, min ${min}`);
 }
-minMax([1, 3, 7, 9]);
+
+minMax([1, 3, 7, 9]); // Output: max: 9, min: 1
+minMax([2, 5, 3, 6, 10, -1]); // Output: max: 10, min: -1
+minMax([1]); // Output: max: 1, min: 1
 minMax([]);
 
 /**
@@ -211,7 +213,7 @@ minMax([]);
 
 function seq(num) {
   let sum = [];
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < num.length; i++) {
     sum.push(i);
   }
   return sum;
@@ -231,11 +233,11 @@ console.log(seq(5));
  */
 
 function omitSeq(num) {
-  let sum = [];
+  let numbers = [];
   for (let i = 1; i <= num; i += 2) {
-    sum.push(i);
+    numbers.push(i);
   }
-  return sum;
+  return numbers;
 }
 
 console.log(omitSeq(5));
@@ -253,12 +255,13 @@ console.log(omitSeq(5));
  */
 
 function filter(array, num) {
-  return array.filter(function(number) {
-    return number <= num;
+  return array.filter(function(numbers) {
+    return numbers <= num;
   });
 }
 
 console.log(filter([1, 7, 5, 4], 3));
+console.log(filter([1, 7, 5, 4], 7));
 
 /**
  *  Fizz Buzz
