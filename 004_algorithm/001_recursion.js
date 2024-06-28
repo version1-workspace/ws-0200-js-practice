@@ -10,11 +10,11 @@
  */
 
 function sumSequence(n, sum = 0) {
-  if (n <= 0) {
-    return 0;
+  let result = 0;
+  for (let i = 1; i <= n; i++) {
+    result += i;
   }
-  // console.log(sumSequence(n - 1));
-  return n + sumSequence(n - 1);
+  return result;
 }
 
 console.log(sumSequence(3));
@@ -29,7 +29,17 @@ console.log(sumSequence(3));
  *    input: 10 => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
  */
 
-function fibonacci(num) {}
+function fibonacci(num) {
+  if (num <= 0) {
+    return 0;
+  }
+  let fib = [1, 1];
+  for (let i = 2; i < num; i++) {
+    console.log(fib.push(fib[i - 1] + fib[i - 2]));
+  }
+  return fib.slice(0, num);
+}
+console.log(fibonacci(10));
 
 /**
  *  2.4.2 ディレクトリに含まれるファイルサイズの合計
@@ -83,7 +93,65 @@ function fibonacci(num) {}
  *    => 38
  */
 
-function fileSize(node, sum = 0) {}
+function fileSize(node, sum = 0) {
+  if (node.type === "file") {
+    return node.size;
+  }
+
+  let result = 0;
+  // console.log(node.children);
+  if (node.children && node.children.length > 0) {
+    for (let i = 0; i < node.children.length; i++) {
+      result += fileSize(node.children[i]);
+    }
+  }
+  return result;
+}
+
+const directoryStructure = {
+  type: "folder",
+  size: 0,
+  children: [
+    {
+      type: "folder",
+      size: 0,
+      children: [
+        {
+          type: "folder",
+          size: 0,
+          children: [
+            {
+              type: "file",
+              size: 5,
+            },
+            {
+              type: "file",
+              size: 7,
+            },
+            {
+              type: "file",
+              size: 9,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "file",
+      size: 3,
+    },
+    {
+      type: "file",
+      size: 4,
+    },
+    {
+      type: "file",
+      size: 10,
+    },
+  ],
+};
+
+console.log(fileSize(directoryStructure));
 
 module.exports = {
   sumSequence,

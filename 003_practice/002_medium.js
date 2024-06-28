@@ -11,13 +11,8 @@
  */
 function rotate(str, num) {
   const length = str.length;
-  // num = ((num % length) + length) % length;
   return str.slice(-num) + str.slice(0, -num);
 }
-
-console.log(rotate("library", 1));
-console.log(rotate("library", 3));
-console.log(rotate("library", 3));
 
 /**
  *  母音を除いた文字列
@@ -31,7 +26,6 @@ console.log(rotate("library", 3));
  *
  */
 function removeVowels(str) {
-  //1
   const vowels = ["a", "i", "u", "e", "o"];
 
   let result = "";
@@ -41,15 +35,7 @@ function removeVowels(str) {
     }
   }
   return result;
-
-  //2
-
-  // return str.replace(/[aeiou]/gi, "");
 }
-
-console.log(removeVowels("library"));
-console.log(removeVowels("apple"));
-console.log(removeVowels("banana"));
 
 /**
  *  文字列のカウント
@@ -63,12 +49,9 @@ console.log(removeVowels("banana"));
  *
  */
 function countStr(s1, s2) {
-  //1
   const word = s1.split(s2);
   return word.length - 1;
 }
-console.log(countStr("abcdabeabc", "abc"));
-console.log(countStr("hogehoage", "hoge"));
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
@@ -81,25 +64,24 @@ console.log(countStr("hogehoage", "hoge"));
  *      level => true
  *
  */
-
+// やり直し;
 function isPalindrome(str) {
   if (str === "") {
     return true;
   }
-  for (let i = 0; i < str.length; i++) {
-    for (let j = str.length - 1; j < str.length; j--) {
-      if (str[i] === str[j]) {
-        return true;
-      } else {
-        return false;
-      }
+  if (str === "") {
+    return true;
+  }
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
     }
   }
+
+  return true;
 }
 
-console.log(isPalindrome("work"));
-console.log(isPalindrome("anna"));
-
+console.log(isPalindrome("aaalaaa"));
 /**
  *  素数
  *
@@ -114,10 +96,15 @@ console.log(isPalindrome("anna"));
  *    11 => True
  *
  */
+//やり直し
 function isPrime(num) {
   if (num <= 1) return false;
   if (num <= 3) return true;
   if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
 
   return true;
 }
@@ -148,8 +135,6 @@ function sumWithout4andNext(array) {
   }
   return sum;
 }
-console.log(sumWithout4andNext([1, 2, 3, 4]));
-console.log(sumWithout4andNext([4, 4, 1, 2]));
 
 module.exports = {
   rotate,
