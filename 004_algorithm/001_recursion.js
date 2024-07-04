@@ -10,11 +10,10 @@
  */
 
 function sumSequence(n, sum = 0) {
-  let result = 0;
-  for (let i = 1; i <= n; i++) {
-    result += i;
+  if (n <= 0) {
+    return sum;
   }
-  return result;
+  return sumSequence(n - 1, sum + n);
 }
 
 console.log(sumSequence(3));
@@ -30,14 +29,14 @@ console.log(sumSequence(3));
  */
 
 function fibonacci(num) {
-  if (num <= 0) {
-    return 0;
-  }
+  if (num <= 0) return [];
+  if (num === 1) return [1];
+
   let fib = [1, 1];
   for (let i = 2; i < num; i++) {
-    console.log(fib.push(fib[i - 1] + fib[i - 2]));
+    fib.push(fib[i - 1] + fib[i - 2]);
   }
-  return fib.slice(0, num);
+  return fib;
 }
 console.log(fibonacci(10));
 
@@ -98,17 +97,17 @@ function fileSize(node, sum = 0) {
     return node.size;
   }
 
-  let result = 0;
-  // console.log(node.children);
-  if (node.children && node.children.length > 0) {
+  let total = 0;
+
+  if (node.type === "folder" && node.children) {
     for (let i = 0; i < node.children.length; i++) {
-      result += fileSize(node.children[i]);
+      total += fileSize(node.children[i]);
     }
   }
-  return result;
-}
 
-const directoryStructure = {
+  return total;
+}
+const directoryTree = {
   type: "folder",
   size: 0,
   children: [
@@ -151,8 +150,7 @@ const directoryStructure = {
   ],
 };
 
-console.log(fileSize(directoryStructure));
-
+console.log(fileSize(directoryTree));
 module.exports = {
   sumSequence,
   fibonacci,

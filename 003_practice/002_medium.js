@@ -9,6 +9,7 @@
  *    'library', -1 => 'ibraryl'
  *
  */
+
 function rotate(str, num) {
   const length = str.length;
   return str.slice(-num) + str.slice(0, -num);
@@ -64,14 +65,8 @@ function countStr(s1, s2) {
  *      level => true
  *
  */
-// やり直し;
+
 function isPalindrome(str) {
-  if (str === "") {
-    return true;
-  }
-  if (str === "") {
-    return true;
-  }
   for (let i = 0; i < str.length / 2; i++) {
     if (str[i] !== str[str.length - 1 - i]) {
       return false;
@@ -81,7 +76,6 @@ function isPalindrome(str) {
   return true;
 }
 
-console.log(isPalindrome("aaalaaa"));
 /**
  *  素数
  *
@@ -97,17 +91,23 @@ console.log(isPalindrome("aaalaaa"));
  *
  */
 //やり直し
+
 function isPrime(num) {
   if (num <= 1) return false;
   if (num <= 3) return true;
   if (num % 2 === 0 || num % 3 === 0) return false;
 
-  for (let i = 5; i * i <= num; i += 6) {
-    if (num % i === 0 || num % (i + 2) === 0) return false;
+  //25 から
+  for (let i = 5; i * i <= num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
   }
 
   return true;
 }
+
+console.log(isPrime(29));
 
 /**
  *  配列の4と次の数字を抜いた合計
@@ -124,8 +124,10 @@ function isPrime(num) {
  *    [4] => 0
  *
  */
+
 function sumWithout4andNext(array) {
   let sum = 0;
+
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 4) {
       i++;
