@@ -97,7 +97,6 @@ function isPrime(num) {
   if (num <= 3) return true;
   if (num % 2 === 0 || num % 3 === 0) return false;
 
-  //25 から
   for (let i = 5; i * i <= num; i++) {
     if (num % i === 0) {
       return false;
@@ -132,6 +131,8 @@ function sumWithout4andNext(array) {
     if (array[i] === 4) {
       i++;
     } else {
+      // console.log((sum += array[i]));
+      console.log();
       sum += array[i];
     }
   }

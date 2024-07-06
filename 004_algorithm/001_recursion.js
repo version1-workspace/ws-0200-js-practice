@@ -31,11 +31,10 @@ console.log(sumSequence(3));
 function fibonacci(num) {
   if (num <= 0) return [];
   if (num === 1) return [1];
+  if (num === 2) return [1, 1];
 
-  let fib = [1, 1];
-  for (let i = 2; i < num; i++) {
-    fib.push(fib[i - 1] + fib[i - 2]);
-  }
+  const fib = fibonacci(num - 1);
+  fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
   return fib;
 }
 console.log(fibonacci(10));
