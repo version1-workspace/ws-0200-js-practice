@@ -33,11 +33,13 @@ Gitが初めての方は下記を参照ください。
 
 #### 2. 課題に必要な概念を学ぶ
 
+
 デバッグの技術は今後プログラミングを行う上で必須です。
 
 **※※※下記必ず確認してデバッガを使いこなせるようにお願いします。※※※**
 
 - [JavaScriptでのデバッグ技術入門](https://version1-workspace.gitbook.io/javascript-5)
+- [\[JavaScript in 10 minutes\] コードを速く書くために Console タブを活用しよう](https://www.youtube.com/watch?v=JqLmrQzBjZU)
 
 
 JavaScriptが初めての方は下記ドキュメントに目を通して頂けると良いかと思います。
