@@ -118,24 +118,3 @@ $ npm run test [テストファイルへのパス] # テストを実行
 ```
 
 ![テスト実行-ファイル](./assets/run-test-file.png)
-
-## 目次
-
-- 0001_syntax jsの文法を学ぶ基本問題(map, filterなどの組み込みのAPIを使わずにときましょう）
-   - 001_base.js
-   - 002_condition.js
-   - 003_loop.js
-   - 004_string.js
-   - 005_object.js
-- 0002_class クラスとオブジェクト指向に関する問題
-   - 001_class.js
-   - 002_inheritance.js
-   - 003_data.js
-- 0003_practice js練習問題
-   - 001_easy.js
-   - 002_medium.js
-- 0004_algorithm アルゴリズム問題をjsを使ってとく問題
-   - 001_recursion.js 再帰アルゴリズムの実装
-   - 002_search.js 検索アルゴリズムの実装
-   - 003_sort.js ソートアルゴリズムの実装
-
