@@ -1,4 +1,3 @@
-
 /**
  *  文字列の長さ
  *
@@ -12,8 +11,14 @@
  */
 
 function length(str) {
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum++;
+  }
+  return sum;
 }
-
+length("banana");
+length("");
 /**
  *  文字列の反転
  *
@@ -25,8 +30,16 @@ function length(str) {
  *    'fizzbuzz' => 'zzubzzif'
  *
  */
+
 function reverse(str) {
+  let word = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    word = word + str[i];
+  }
+  return word;
 }
+
+console.log(reverse("library"));
 
 /**
  *  指定された文字列の位置を返却
@@ -41,7 +54,15 @@ function reverse(str) {
  */
 
 function findIndex(str, char) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      return i;
+    }
+  }
+  return -1;
 }
+console.log(findIndex("library", "a"));
+console.log(findIndex("bicycle", "w"));
 
 /**
  *  指定された文字列を指定された文字で分割
@@ -56,8 +77,9 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
+  return a.split(b);
 }
-
+console.log(split("library", "a"));
 /**
  *  配列の合計
  *
@@ -71,7 +93,13 @@ function split(a, b) {
  */
 
 function sum(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
 }
+console.log(sum([1, 3, 7, 9]));
 
 /**
  *  配列の平均
@@ -88,7 +116,18 @@ function sum(array) {
  */
 
 function average(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      sum += array[i];
+    }
+    return Math.floor(sum / array.length);
+  }
 }
+console.log(average([1, 3, 7, 9]));
+console.log(average([]));
 
 /**
  *  配列の結合
@@ -103,7 +142,11 @@ function average(array) {
  */
 
 function concat(a, b) {
+  const num = a.concat(b);
+  return num;
 }
+
+console.log(concat([1, 3, 7, 9], [3, 4]));
 
 /**
  *  2.1.2 配列の個数
@@ -118,7 +161,9 @@ function concat(a, b) {
  */
 
 function size(array) {
+  return array.length;
 }
+console.log(size([1, 3, 7, 9]));
 
 /**
  *  2.1.3 配列の最大値と最小値
@@ -126,7 +171,7 @@ function size(array) {
  *  配列の最大値と最小値を出力する関数を実装してください。
  *
  *  example:
- *    [1, 3, 7, 9] => max: 20, min: 1
+ *    [1, 3, 7, 9] => max: 9, min: 1
  *    [2, 5, 3, 6, 10, -1] => max: 10, min: -1
  *    [1] => max: 1, min: 1
  *    [] => 表示しない
@@ -134,7 +179,26 @@ function size(array) {
  */
 
 function minMax(array) {
+  if (array.length === 0) {
+    return "";
+  }
+  let max = array[i];
+  let min = array[i];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
+  }
+  console.log(`max: ${max}, min ${min}`);
 }
+
+minMax([1, 3, 7, 9]); // Output: max: 9, min: 1
+minMax([2, 5, 3, 6, 10, -1]); // Output: max: 10, min: -1
+minMax([1]); // Output: max: 1, min: 1
+minMax([]);
 
 /**
  *  連番
@@ -148,7 +212,13 @@ function minMax(array) {
  */
 
 function seq(num) {
+  let sum = [];
+  for (let i = 0; i < num.length; i++) {
+    sum.push(i);
+  }
+  return sum;
 }
+console.log(seq(5));
 
 /**
  *  奇数の連番
@@ -163,7 +233,14 @@ function seq(num) {
  */
 
 function omitSeq(num) {
+  let numbers = [];
+  for (let i = 1; i <= num; i += 2) {
+    numbers.push(i);
+  }
+  return numbers;
 }
+
+console.log(omitSeq(5));
 
 /**
  *  指定された数値以下の配列
@@ -178,9 +255,13 @@ function omitSeq(num) {
  */
 
 function filter(array, num) {
+  return array.filter(function(numbers) {
+    return numbers <= num;
+  });
 }
 
-
+console.log(filter([1, 7, 5, 4], 3));
+console.log(filter([1, 7, 5, 4], 7));
 
 /**
  *  Fizz Buzz
@@ -205,8 +286,21 @@ function filter(array, num) {
  *    ...
  */
 
-function fizzBuzz () {
+function fizzBuzz() {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(`${i} FizzBuzz`);
+    } else if (i % 3 === 0) {
+      console.log(`${i} Fizz`);
+    } else if (i % 5 === 0) {
+      console.log(`${i} Buzz`);
+    } else {
+      console.log(`${i}`);
+    }
+  }
 }
+
+fizzBuzz();
 
 module.exports = {
   length,
@@ -222,5 +316,5 @@ module.exports = {
   seq,
   filter,
   omitSeq,
-  fizzBuzz
-}
+  fizzBuzz,
+};

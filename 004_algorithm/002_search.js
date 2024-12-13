@@ -1,4 +1,3 @@
-
 /**
  *  2.3.1 リニアサーチ
  *
@@ -11,9 +10,15 @@
  *    [5, 3, 2, 1], 6 => -1
  */
 
-function linearSearch (array, target) {
+function linearSearch(array, target) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return i;
+    }
+  }
+  return -1;
 }
-
+console.log(linearSearch([1, 3, 2, 4, 5], 3));
 /**
  *  2.3.2 バイナリサーチ
  *
@@ -24,10 +29,26 @@ function linearSearch (array, target) {
  *    [1, 2, 3, 4] 5 => -1
  */
 
-function binarySearch (array, target) {
+function binarySearch(array, target) {
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (array[mid] === target) {
+      return mid;
+    } else if (array[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
 }
 
 module.exports = {
   linearSearch,
-  binarySearch
-}
+  binarySearch,
+};

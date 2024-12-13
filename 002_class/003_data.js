@@ -27,6 +27,7 @@ class List {
    */
   get size() {
     // TODO:
+    return this.data.length;
   }
 
   /** 引数で渡された添字のデータを取得する
@@ -36,6 +37,7 @@ class List {
    */
   index(index) {
     // TODO:
+    return this.data[index];
   }
 
   /** リストの 要素を追加する
@@ -45,6 +47,8 @@ class List {
    */
   push(item) {
     // TODO:
+    this.data.push(item);
+    return this.data.length;
   }
 
   /** 与えられた引数により、リストの 要素を削除する
@@ -54,6 +58,8 @@ class List {
    */
   remove(targetIndex) {
     // TODO:
+    const removeItem = this.data.splice(targetIndex, 1)[0];
+    return removeItem;
   }
 
   /** リストの 末尾の要素を取得する
@@ -63,6 +69,8 @@ class List {
    */
   pop() {
     // TODO:
+    const popItem = this.data.pop();
+    return popItem;
   }
 
   /** リストの 先頭の要素を取得する
@@ -71,6 +79,9 @@ class List {
    */
   shift() {
     // TODO:
+
+    const shiftItem = this.data.shift();
+    return shiftItem;
   }
 
   /** リストの の中から引数に合致する値を取得する
@@ -80,10 +91,14 @@ class List {
    * @param {Number} target
    * @return {Number | undefined}
    */
-  find(target) {
-    // TODO:
-  }
 
+  find(target) {
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i] === target) {
+        return this.data[i];
+      }
+    }
+  }
   /** リストの の中から引数に合致する値のindexを取得する。見つからない場合は-1を返す
    *
    * XXX: findIndex関数は使わずにfor文、while文を活用して実装しましょう
@@ -93,7 +108,15 @@ class List {
    */
   findIndex(target) {
     // TODO:
+
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i] === target) {
+        return i;
+      }
+    }
+    return -1;
   }
+  //npm run test __test__/002_class/003_data.spec.js
 
   /** リストの の中から要素に合致する数を取り除く
    *
@@ -106,6 +129,13 @@ class List {
    */
   filter(target) {
     // TODO:
+    const filterItem = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i] !== target) {
+        filterItem.push(this.data[i]);
+      }
+    }
+    return new List(filterItem);
   }
 }
 
@@ -136,6 +166,9 @@ class Stack {
    */
   push(item) {
     // TODO:
+
+    const pushItem = this.data.push(item);
+    return pushItem;
   }
 
   /** スタックから要素を取得する
@@ -143,8 +176,12 @@ class Stack {
    * @param {Number} item
    * @return {Number}
    */
+  // npm run test __test__/002_class/003_data.spec.js
   pop() {
     // TODO:
+
+    const popItem = this.data.pop();
+    return popItem;
   }
 
   /** スタックの末尾の要素を参照する
@@ -153,7 +190,10 @@ class Stack {
    * @return {Number}
    */
   peek() {
-    // TODO:
+    // TODO
+
+    const peekItem = this.data[this.data.length - 1];
+    return peekItem;
   }
 }
 
@@ -185,6 +225,9 @@ class Queue {
    */
   enqueue(item) {
     // TODO:
+
+    const enqueueItem = this.data.push(item);
+    return enqueueItem;
   }
 
   /** キューから要素を取得する
@@ -193,6 +236,9 @@ class Queue {
    */
   dequeue() {
     // TODO:
+
+    const itemDequeue = this.data.shift();
+    return itemDequeue;
   }
 
   /** キューの要素を参照する
@@ -201,11 +247,14 @@ class Queue {
    */
   peek() {
     // TODO:
+
+    const peekItem = this.data[0];
+    return peekItem;
   }
 }
 
 module.exports = {
   List,
   Stack,
-  Queue
+  Queue,
 };

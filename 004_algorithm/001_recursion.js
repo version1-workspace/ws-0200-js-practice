@@ -1,4 +1,3 @@
-
 /**
  *  数列の和
  *
@@ -10,8 +9,14 @@
  *    30 => 55
  */
 
-function sumSequence (n, sum = 0) {
+function sumSequence(n, sum = 0) {
+  if (n <= 0) {
+    return sum;
+  }
+  return sumSequence(n - 1, sum + n);
 }
+
+console.log(sumSequence(3));
 
 /**
  *  フィボナッチ数
@@ -23,9 +28,16 @@ function sumSequence (n, sum = 0) {
  *    input: 10 => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
  */
 
-function fibonacci (num) {
-}
+function fibonacci(num) {
+  if (num <= 0) return [];
+  if (num === 1) return [1];
+  if (num === 2) return [1, 1];
 
+  const fib = fibonacci(num - 1);
+  fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
+  return fib;
+}
+console.log(fibonacci(10));
 
 /**
  *  2.4.2 ディレクトリに含まれるファイルサイズの合計
@@ -79,12 +91,67 @@ function fibonacci (num) {
  *    => 38
  */
 
-function fileSize (node, sum = 0) {
+function fileSize(node, sum = 0) {
+  if (node.type === "file") {
+    return node.size;
+  }
+
+  let total = 0;
+
+  if (node.type === "folder" && node.children) {
+    for (let i = 0; i < node.children.length; i++) {
+      total += fileSize(node.children[i]);
+    }
+  }
+
+  return total;
 }
+const directoryTree = {
+  type: "folder",
+  size: 0,
+  children: [
+    {
+      type: "folder",
+      size: 0,
+      children: [
+        {
+          type: "folder",
+          size: 0,
+          children: [
+            {
+              type: "file",
+              size: 5,
+            },
+            {
+              type: "file",
+              size: 7,
+            },
+            {
+              type: "file",
+              size: 9,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "file",
+      size: 3,
+    },
+    {
+      type: "file",
+      size: 4,
+    },
+    {
+      type: "file",
+      size: 10,
+    },
+  ],
+};
 
-
+console.log(fileSize(directoryTree));
 module.exports = {
   sumSequence,
   fibonacci,
-  fileSize
-}
+  fileSize,
+};

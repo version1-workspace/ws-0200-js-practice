@@ -9,7 +9,10 @@
  *    'library', -1 => 'ibraryl'
  *
  */
+
 function rotate(str, num) {
+  const length = str.length;
+  return str.slice(-num) + str.slice(0, -num);
 }
 
 /**
@@ -24,6 +27,15 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  const vowels = ["a", "i", "u", "e", "o"];
+
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (!vowels.includes(str[i])) {
+      result += str[i];
+    }
+  }
+  return result;
 }
 
 /**
@@ -38,6 +50,8 @@ function removeVowels(str) {
  *
  */
 function countStr(s1, s2) {
+  const word = s1.split(s2);
+  return word.length - 1;
 }
 
 /**
@@ -53,6 +67,13 @@ function countStr(s1, s2) {
  */
 
 function isPalindrome(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 /**
@@ -69,8 +90,23 @@ function isPalindrome(str) {
  *    11 => True
  *
  */
+//やり直し
+
 function isPrime(num) {
+  if (num <= 1) return false;
+  if (num <= 3) return true;
+  if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
 }
+
+console.log(isPrime(29));
 
 /**
  *  配列の4と次の数字を抜いた合計
@@ -87,7 +123,20 @@ function isPrime(num) {
  *    [4] => 0
  *
  */
+
 function sumWithout4andNext(array) {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 4) {
+      i++;
+    } else {
+      // console.log((sum += array[i]));
+      console.log();
+      sum += array[i];
+    }
+  }
+  return sum;
 }
 
 module.exports = {
@@ -96,5 +145,5 @@ module.exports = {
   countStr,
   isPalindrome,
   isPrime,
-  sumWithout4andNext
-}
+  sumWithout4andNext,
+};

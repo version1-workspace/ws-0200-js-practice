@@ -6,9 +6,16 @@
  *  gender: 'male'
  *
  */
+//npm run test __test__/001_syntax/006_object.spec.js
 
 function getPersonObject() {
+  return {
+    name: "Bob",
+    age: 32,
+    gender: "male",
+  };
 }
+console.log(getPersonObject());
 
 /**
  *  6.2 下記データAが引数で与えられた場合にデータBに書き換える関数を実装してください。
@@ -23,9 +30,19 @@ function getPersonObject() {
  *    gender: 'female'
  *
  */
+const a = {
+  name: "Bob",
+  age: 32,
+  gender: "male",
+};
 
 function mutateObject(person) {
+  person.name = "Mary";
+  person.age = 37;
+  person.gender = "female";
+  return person;
 }
+console.log(mutateObject(a));
 
 /**
  *  6.3 下記引数で渡される配列にランダムな1 ~10の数字を割り振り、オブジェクトとして返す
@@ -48,8 +65,17 @@ function mutateObject(person) {
  *
  */
 
+const people = ["Bob", "Mary", "Ann", "Mike"];
+
 function assignNumber(persons) {
+  const result = {};
+  for (const person of persons) {
+    result[person] = Math.floor(Math.random() * 10) + 1;
+  }
+  return result;
 }
+
+console.log(assignNumber(people));
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
@@ -63,11 +89,23 @@ function assignNumber(persons) {
  */
 
 function isDuplicate(array) {
+  const sum = {};
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (sum[element]) {
+      return true;
+    } else {
+      sum[element] = true;
+    }
+  }
+  return false;
 }
+
+isDuplicate([1, 2, 3]);
 
 module.exports = {
   getPersonObject,
   mutateObject,
   assignNumber,
-  isDuplicate
-}
+  isDuplicate,
+};

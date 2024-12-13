@@ -8,8 +8,17 @@
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function bubbleSort (array) {
-  return array
+function bubbleSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 1; j < array.length - i; j++) {
+      if (array[j - 1] > array[j]) {
+        const temp = array[j - 1];
+        array[j - 1] = array[j];
+        array[j] = temp;
+      }
+    }
+  }
+  return array;
 }
 
 /**
@@ -22,8 +31,18 @@ function bubbleSort (array) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function insertSort (array) {
-  return array
+function insertSort(array) {
+  for (let i = 1; i < array.length; i++) {
+    let current = array[i];
+    let j = i - 1;
+
+    while (j >= 0 && array[j] > current) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = current;
+  }
+  return array;
 }
 
 /**
@@ -36,11 +55,34 @@ function insertSort (array) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function mergeSort (arr) {
-  return arr
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
 /**
@@ -53,13 +95,11 @@ function merge(left, right) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function quickSort (a, start = 0, end = (a.length -1)) {
-  return a
-};
+function quickSort(a, start = 0, end = a.length - 1) {}
 
 module.exports = {
   bubbleSort,
   insertSort,
   mergeSort,
-  quickSort
-}
+  quickSort,
+};
